@@ -1,0 +1,39 @@
+@model Dish
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css"/>
+    <title>Dish Details</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2> @Model.Name </h2>
+        <h5>by: @Model.Chef </h5>
+        <a class="topLink" href="/"> Go Home </a>
+        <hr/>
+    
+        <div>
+            <p> @Model.Description </p>
+
+            <p> Calories: @Model.Calories </p> 
+
+            <p>Tastiness: @Model.Taste </p> 
+        </div>
+
+        <form asp-action="Remove" asp-route-DishId="@Model.DishId" method="GET" asp-controller="Home">
+            <button class="btn btn-danger btn-md"> Delete </button>
+        </form>
+
+        <form asp-action="EditPage" asp-route-DishId="@Model.DishId" method="GET" asp-controller="Home">
+            <button class="btn btn-secondary btn-md"> Edit </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+﻿@model Dish[]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css"/>
+    <title>Main Page</title>
+</head>
+
+<body>
+    <div class = "container">
+        <h1> Welcome to CRUDelicious </h1>
+        <br>
+        <h5> Check out some recent dishes! </h5>
+        <a class="topLink" href="/Add"> Add a New Dish! </a>
+        <hr/>
+        <div class="list">
+            <ul class="list">
+                @foreach(Dish item in Model)
+                {
+                    <li><a href="/View/@item.DishId" class="food"> @item.Name </a> Created by: @item.Chef </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>
